@@ -36,4 +36,11 @@ if __name__ == '__main__':
     weather = []
     for city_coords in coords:
         weather.append(owm_lib.getWeather(city_coords, config['owm_key']))
-    print(weather)
+    
+
+    print('----------------')
+    for i in range(len(city_names)):
+        print(f'{city_names[i]}: {owm_lib.getWeatherInDay(weather[i], i)}')
+        if(i < len(city_names)-1):
+            print(f'Distanza fino alla prossima tappa: {lengths[i]}')
+        print('----------------')

@@ -9,3 +9,6 @@ def getWeather(coords: list, owm_key: str) -> dict:
         return response.json()
     else:
         return {}
+
+def getWeatherInDay(weather: dict, day: int) -> dict:
+    return weather['list'][day]
