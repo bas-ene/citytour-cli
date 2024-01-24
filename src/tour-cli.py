@@ -10,7 +10,7 @@ if __name__ == '__main__':
     city_names = []
     city = ''
     while city != 'done' and len(city_names) < 5:
-        city = input('Inserisci città o "done" per terminare:')
+        city = input('Inserisci città o "done" per terminare:\n> ')
         if city != 'done':
             city_names.append(city)
 
@@ -22,7 +22,7 @@ if __name__ == '__main__':
         print('Possibili risultati:')
         for j in range(len(result)):
             print(f'{j+1}. {result[j]["display_name"]}')
-        i = int(input('Inserisci il numero corrispondente alla città desiderata:'))
+        i = int(input('Inserisci il numero corrispondente alla città desiderata:\n> '))
         if result != {}:
             coords.append([result[i-1]['lon'],  result[i-1]['lat']])
         time.sleep(0.5)
@@ -41,7 +41,7 @@ if __name__ == '__main__':
     for i in range(len(city_names)):
         wd = owm_lib.getWeatherInDay(weather[i], i)
         print(f'{city_names[i]}: {wd["main"]["temp"]}°C\t{wd["weather"][0]["description"]}')
-        if(i < len(city_names)-1):
-            print(f'Distanza fino alla prossima tappa: {lengths[i]/1000} km')
+        if i < len(city_names)-1:
+            print(f'Distanza fino alla prossima tappa: {round(lengths[i]/1000, 1)}km')
         print(f'{wd["dt_txt"]}')
         print('----------------')
