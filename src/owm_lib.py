@@ -11,4 +11,4 @@ def getWeather(coords: list, owm_key: str) -> dict:
         return {}
 
 def getWeatherInDay(weather: dict, day: int) -> dict:
-    return weather['list'][day]
+    return weather['list'][day*8]
