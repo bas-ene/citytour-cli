@@ -21,7 +21,7 @@ if __name__ == '__main__':
         #for each possibile result, make the user decide
         print('Possibili risultati:')
         for j in range(len(result)):
-            print(f'{j+1}. {result[j]["display_name"]}')
+            print(f'{j+1}. {result[j]["display_name"]} - {result[j]["addresstype"]}')
         i = int(input('Inserisci il numero corrispondente alla città desiderata:\n> '))
         if result != {}:
             coords.append([result[i-1]['lon'],  result[i-1]['lat']])
